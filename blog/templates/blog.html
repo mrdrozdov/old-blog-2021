@@ -1,43 +1,19 @@
-<!DOCTYPE html>
-<html>
+{% extends 'layout.html' %}
 
-<head>
-    <style type="text/css">
-    ul {
-        list-style-type: none;
-    }
-    </style>
-</head>
+{% block content %}
 
-<body>
-    <center>
-        <header>
-        <h1>Andrew Drozdov</h1>
-        <p>Machine Learning Researcher in NYC</p>
-        <p>
-            <a href="/index.html">home</a>
+<div class="row text-center"><!-- Sub-header -->
+  <div class="col-xs-12">
+    <h3>Blog</h3>
+  </div>
+</div><!-- Sub-header -->
 
-            <a href="/blog">blog</a>
+<div class="row text-center"><!-- Body -->
+  <div class="col-xs-12">
+      {% for post in posts %}
+          <p><a href="{{ post.url }}">{{ post.title }}<a></p>
+      {% endfor %}
+  </div>
+</div><!-- Body -->
 
-            <a href="/papers">papers</a>
-
-            <a href="http://github.com/mrdrozdov">github</a>
-
-            <a href="http://twitter.com/mrdrozdov">twitter</a>
-
-            <a href="/about.html">about</a>
-        </p>
-        </header>
-
-        <h3>Blog</h3>
-        <p>
-            <ul>
-            {% for post in posts %}
-                <li><a href="{{ post.url }}">{{ post.title }}<a></li>
-            {% endfor %}
-            </ul>
-        </p>
-    </center>
-    
-</body>
-</html>
+{% endblock %}

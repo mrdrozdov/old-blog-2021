@@ -63,14 +63,27 @@ settings = yaml.load(open(blog_config))
 
 env = Environment(
     loader=PackageLoader(settings['package_name'], settings['package_templates']),
-    autoescape=select_autoescape(['html', 'xml'])
+    # autoescape=select_autoescape(['html', 'xml'])
 )
 
 post_template = env.get_template(settings['post_template'])
 blog_template = env.get_template(settings['blog_template'])
+home_template = env.get_template(settings['home_template'])
+papers_template = env.get_template(settings['papers_template'])
+about_template = env.get_template(settings['about_template'])
+
 path_to_posts = settings['path_to_posts']
+
 path_to_public_posts = settings['path_to_public_posts']
+path_to_public_blog = settings['path_to_public_blog']
+path_to_public_home = settings['path_to_public_home']
+path_to_public_papers = settings['path_to_public_papers']
+path_to_public_about = settings['path_to_public_about']
+
 slug_prefix = settings['slug_prefix']
+
+# Render Posts
+# ------------
 
 fns = [fn for fn in listdir(path_to_posts) if isfile(join(path_to_posts, fn))]
 
@@ -98,3 +111,28 @@ for i, fn in enumerate(fns):
         url=os.path.join(slug_prefix, slug),
         title=config['title'],
         ))
+
+# Render Blog
+# -----------
+
+blog = blog_template.render(posts=posts)
+with open(path_to_public_blog, 'w') as f:
+    f.write(blog)
+
+# Render Home
+# -----------
+home = home_template.render()
+with open(path_to_public_home, 'w') as f:
+    f.write(home)
+
+# Render Papers
+# -------------
+papers = papers_template.render()
+with open(path_to_public_papers, 'w') as f:
+    f.write(papers)
+
+# Render About
+# ------------
+about = about_template.render()
+with open(path_to_public_about, 'w') as f:
+    f.write(about)
