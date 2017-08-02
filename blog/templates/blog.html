@@ -32,7 +32,9 @@
         <h3>Blog</h3>
         <p>
             <ul>
-                <li><a href="/blog/example.html">Example Blog Post<a></li>
+            {% for post in posts %}
+                <li><a href="{{ post.url }}">{{ post.title }}<a></li>
+            {% endfor %}
             </ul>
         </p>
     </center>

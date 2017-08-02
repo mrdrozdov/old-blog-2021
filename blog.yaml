@@ -1,0 +1,7 @@
+package_name: blog
+package_templates: templates
+blog_template: blog.html
+post_template: post.html
+path_to_posts: ./blog/posts
+path_to_public_posts: ./public/blog
+slug_prefix: /blog
