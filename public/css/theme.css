@@ -157,6 +157,10 @@ a {
 
 /* Custom */
 
+body {
+  min-width: 600px;
+}
+
 /* Post */
 
 .blog-post-body section {
