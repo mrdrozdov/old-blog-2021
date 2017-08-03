@@ -2,14 +2,13 @@
 <html>
 
 <head>
-    <style type="text/css">
-    ul {
-        list-style-type: none;
-    }
-    </style>
-
+    <!-- Bootstrap -->
     <link href="//oss.maxcdn.com/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+
     <link href="/css/theme.css" rel="stylesheet">
+
+    <!-- Latex -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -37,7 +36,7 @@
               </div>
             </div>
 
-            <div class="row">
+            <div class="row" style="margin-bottom: 10px;">
               <div class="col-xs-12">
                 <a href="/index.html">home</a>
 
@@ -75,7 +74,27 @@
       </div>
     </div>
     
+    <!-- Bootstrap -->
     <script src="//oss.maxcdn.com/libs/jquery/1.10.2/jquery.min.js" integrity="sha384-aBL3Lzi6c9LNDGvpHkZrrm3ZVsIwohDD7CDozL0pk8FwCrfmV7H9w8j3L7ikEv6h" crossorigin="anonymous"></script>
     <script src="//oss.maxcdn.com/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js" integrity="sha384-s1ITto93iSMDxlp/79qhWHi+LsIi9Gx6yL+cOKDuymvihkfol83TYbLbOw+W/wv4" crossorigin="anonymous"></script>
+
+    <!-- Latex -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+
+    <!-- Autorender Latex -->
+    <script>
+    renderMathInElement(
+          document.body,
+          {
+              delimiters: [
+                  {left: "$$", right: "$$", display: true},
+                  {left: "\\[", right: "\\]", display: true},
+                  {left: "$", right: "$", display: false},
+                  {left: "\\(", right: "\\)", display: false}
+              ]
+          }
+      );
+    </script>
 </body>
 </html>

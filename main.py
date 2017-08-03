@@ -1,4 +1,5 @@
 import yaml
+import mistune
 
 from jinja2 import Environment, PackageLoader, select_autoescape
 
@@ -93,8 +94,9 @@ for i, fn in enumerate(fns):
     fn = os.path.join(path_to_posts, fn)
     config = parse_config(fn)
     data = parse_data(fn)
+    body = mistune.markdown(data, escape=False)
 
-    post = post_template.render(body=data, **config)
+    post = post_template.render(body=body, **config)
 
     slug = config.get('slug', None)
     if not slug:
