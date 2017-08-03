@@ -68,6 +68,8 @@
 <div class="row">
     <div class="blog-post-body col-xs-12">
         <p>Abstract: When iteratively sampling transitions in transition based sampling, using a uniform distribution will result in frequency counts over unique trees resembling a step function. Rather, sampling over a distribution tied to the remaining viable transition sequences given the sequence of already taken transitions will give a smooth, uniform-like set of frequency counts. Providing this distribution naively is exponential over the length of the sequence. Fortunately, there is a closed form solution for this distribution in the case of binary trees.</p>
+<hr style="border-color: black;">
+
 <p>Shift-Reduce parsing is a useful way to <em>linearize</em> binary trees. The word <em>linearize</em> here means to represent a binary tree as a sequence of elements. In this case, each element is either a Shift or Reduce transition.</p>
 <p>This is how Shift-Reduce parsing works. We take the leaves of our binary tree and put them on queue. We also initialize an empty stack. The transitions are defined as follows:</p>
 <ul>
@@ -85,9 +87,26 @@
 <li>Is the queue empty? Then we must Reduce.</li>
 </ul>
 <p>Since we not all transitions are not always valid at each time step (depending on the transitions we've chosen so far), there is <em>bias</em> in the types of trees that are created this way. Specifically, certain trees will be more likely than others. In effect, uniformly sampling Shift-Reduce transitions does not uniformly sample binary trees.</p>
-<section id="uniform-trees">Uniformly Sampling Binary Trees</section><p>We can still sample binary trees using Shift-Reduce transitions, we only need to be careful about which distribution to use when sampling the Shift-Reduce transitions at each step.</p>
-<p>...to be continued...</p>
-
+<section id="uniform-trees">Uniformly Sampling Binary Trees</section><p>We can still sample binary trees using Shift-Reduce transitions, we need only be careful about which distribution to use when sampling the Shift-Reduce transitions at each step.</p>
+<p>The correct distribution to use at each step can be found with this algorithm:</p>
+<ol>
+<li>Generate all possible trees with the current <em>transition prefix</em>. The <em>transition prefix</em> is the sequence of transitions that have been used so far.</li>
+<li>Calculate the percentage of possible trees that have a Shift at the next step. This is the probability of Shifting (and the complement is the probability of Reducing).</li>
+</ol>
+<p>Do you see the problem? This algorithm is correct but requires that we generate all possible trees, which we already said was infeasible for large values of $N$. What we need is a closed form solution that returns the same value.</p>
+<section id="uniform-trees">Catalan Pyramid Distribution</section><p>It is possible to build a lookup table that can return the correct value in constant time. The table is accessed using the current time step and the number of Reduces performed so far. It is generated like this:</p>
+<div>
+$$
+\begin{aligned}
+\text{row}_{i,0,0} &= 1 \\
+\text{row}_{i,0,1} &= i + 2 \\
+\text{row}_{i,n_i-1,1} &= Catalan(i+1) \\
+\text{row}_{i,n_i-1,0} &= \text{row}_{i,n_i-1,1} + \text{row}_{i-1,n_i-2,1} \\
+\text{row}_{i,j,0} &= \text{row}_{i-1,j,1} \\
+\text{row}_{i,j,1} &= \text{row}_{i,j,0} + \text{row}_{i-1,j,1}
+\end{aligned}
+$$
+</div>
     </div>
 </div>
 
