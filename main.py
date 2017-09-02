@@ -9,6 +9,13 @@ from os import listdir
 from os.path import isfile, join
 
 
+def mkdirp(path):
+    try:
+        os.makedirs(path)
+    except OSError as exc:
+        pass
+
+
 def parse_config(fn):
     start_match = '---'
     end_match = '---'
@@ -88,7 +95,11 @@ template_manager = TemplateManager(env, settings)
 post_template = env.get_template(settings['post_template'])
 path_to_posts = settings['path_to_posts']
 path_to_public_posts = settings['path_to_public_posts']
-slug_prefix = settings['slug_prefix']
+post_slug_prefix = settings['post_slug_prefix']
+
+paper_summary_template = env.get_template(settings['paper_summary_template'])
+path_to_paper_summaries = settings['path_to_paper_summaries']
+path_to_public_paper_summaries = settings['path_to_public_paper_summaries']
 
 
 # Render Posts
@@ -114,19 +125,52 @@ for i, fn in enumerate(fns):
         slug = slug + '.html'
     fn_out = os.path.join(path_to_public_posts, slug)
 
+    mkdirp(os.path.dirname(fn_out))
     with open(fn_out, 'w') as f:
         f.write(post)
 
     posts.append(dict(
-        url=os.path.join(slug_prefix, slug),
+        url=os.path.join(post_slug_prefix, slug),
         title=config['title'],
         ))
 
+# Render Paper Summaries
+# ----------------------
+
+fns = [fn for fn in listdir(path_to_paper_summaries) if isfile(join(path_to_paper_summaries, fn))]
+
+paper_summaries = []
+
+for i, fn in enumerate(fns):
+    fn = os.path.join(path_to_paper_summaries, fn)
+    config = parse_config(fn)
+    data = parse_data(fn)
+    body = mistune.markdown(data, escape=False)
+
+    post = paper_summary_template.render(body=body, **config)
+
+    slug = config.get('slug', None)
+    if not slug:
+        raise ValueError('Error: Must include `slug` for each post (post: {}).'.format(fn))
+
+    if not slug.endswith('.html'):
+        slug = slug + '.html'
+    fn_out = os.path.join(path_to_public_paper_summaries, slug)
+
+    mkdirp(os.path.dirname(fn_out))
+    with open(fn_out, 'w') as f:
+        f.write(post)
+
+    paper_summaries.append(dict(
+        url=os.path.join(paper_summary_slug_prefix, slug),
+        title=config['title'],
+        ))
 
 # Render Standalone Pages
 # ------------
 
 template_manager.add_page('blog_template', 'path_to_public_blog', posts=posts)
+template_manager.add_page('paper_summaries_template', 'path_to_public_papers', paper_summaries=paper_summaries)
 template_manager.add_page('home_template', 'path_to_public_home')
 template_manager.add_page('papers_template', 'path_to_public_papers')
 template_manager.add_page('about_template', 'path_to_public_about')

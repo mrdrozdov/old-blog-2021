@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<div class="row text-center"><!-- Sub-header -->
+  <div class="col-xs-12">
+    <h3>Summaries</h3>
+  </div>
+</div><!-- Sub-header -->
+
+<div class="row text-center"><!-- Body -->
+  <div class="col-xs-12">
+      {% for paper_summary in paper_summaries %}
+          <p><a href="{{ paper_summary.url }}">{{ paper_summary.title }}<a></p>
+      {% endfor %}
+  </div>
+</div><!-- Body -->
+
+{% endblock %}

@@ -4,15 +4,21 @@ package_templates: templates
 home_template: home.html
 blog_template: blog.html
 post_template: post.html
+summaries_template: summaries.html
+paper_summary_template: post.html
 papers_template: papers.html
 about_template: about.html
 
 path_to_posts: ./blog/posts
+path_to_paper_summaries: ./blog/summaries
 
 path_to_public_home: ./public/index.html
 path_to_public_blog: ./public/blog/index.html
+path_to_public_summaries: ./public/summaries/index.html
 path_to_public_posts: ./public/blog
+path_to_public_paper_summaries: ./public/summaries
 path_to_public_about: ./public/about.html
 path_to_public_papers: ./public/papers/index.html
 
-slug_prefix: /blog
+post_slug_prefix: /blog
+paper_summary_slug_prefix: /summaries
