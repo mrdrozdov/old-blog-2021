@@ -67,7 +67,7 @@
 </div>
 <div class="row">
     <div class="blog-post-body col-xs-12">
-        <p>Abstract: When iteratively sampling transitions in transition based sampling, using a uniform distribution will result in frequency counts over unique trees resembling a step function. Rather, sampling over a distribution tied to the remaining viable transition sequences given the sequence of already taken transitions will give a smooth, uniform-like set of frequency counts. Providing this distribution naively is exponential over the length of the sequence. Fortunately, there is a closed form solution for this distribution in the case of binary trees.</p>
+        <p>When sampling binary trees by sampling Shift-Reduce transitions, using a uniform distribution over transitions will bias certain binary tree structures over others. Rather than uniformly sampling transitions, it is necessary to sample transitions in proportion to how many remaining valid sequences have the transition of interest. This calculation is not computationally feasible for non-trivial tree sizes. Instead, use a novel dynamic programming solution that we present and call the Catalan pyramid distribution.</p>
 <hr style="border-color: black;">
 
 <p>Shift-Reduce parsing is a useful way to <em>linearize</em> binary trees. The word <em>linearize</em> here means to represent a binary tree as a sequence of elements. In this case, each element is either a Shift or Reduce transition.</p>
