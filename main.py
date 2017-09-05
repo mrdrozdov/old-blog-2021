@@ -67,21 +67,29 @@ env = Environment(
     # autoescape=select_autoescape(['html', 'xml'])
 )
 
+
+class TemplateManager(object):
+    def __init__(self, env, settings):
+        super(TemplateManager, self).__init__()
+        self.env = env
+        self.settings = settings
+
+    def add_page(self, template_name, public_name, **kwargs):
+        public_path = self.settings[public_name]
+        template = self.env.get_template(self.settings[template_name])
+        data = template.render(**kwargs)
+        with open(public_path, 'w') as f:
+            f.write(data)
+
+
+template_manager = TemplateManager(env, settings)
+
+
 post_template = env.get_template(settings['post_template'])
-blog_template = env.get_template(settings['blog_template'])
-home_template = env.get_template(settings['home_template'])
-papers_template = env.get_template(settings['papers_template'])
-about_template = env.get_template(settings['about_template'])
-
 path_to_posts = settings['path_to_posts']
-
 path_to_public_posts = settings['path_to_public_posts']
-path_to_public_blog = settings['path_to_public_blog']
-path_to_public_home = settings['path_to_public_home']
-path_to_public_papers = settings['path_to_public_papers']
-path_to_public_about = settings['path_to_public_about']
-
 slug_prefix = settings['slug_prefix']
+
 
 # Render Posts
 # ------------
@@ -114,27 +122,11 @@ for i, fn in enumerate(fns):
         title=config['title'],
         ))
 
-# Render Blog
-# -----------
 
-blog = blog_template.render(posts=posts)
-with open(path_to_public_blog, 'w') as f:
-    f.write(blog)
-
-# Render Home
-# -----------
-home = home_template.render()
-with open(path_to_public_home, 'w') as f:
-    f.write(home)
-
-# Render Papers
-# -------------
-papers = papers_template.render()
-with open(path_to_public_papers, 'w') as f:
-    f.write(papers)
-
-# Render About
+# Render Standalone Pages
 # ------------
-about = about_template.render()
-with open(path_to_public_about, 'w') as f:
-    f.write(about)
+
+template_manager.add_page('blog_template', 'path_to_public_blog', posts=posts)
+template_manager.add_page('home_template', 'path_to_public_home')
+template_manager.add_page('papers_template', 'path_to_public_papers')
+template_manager.add_page('about_template', 'path_to_public_about')
