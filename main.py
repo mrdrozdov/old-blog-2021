@@ -100,6 +100,7 @@ post_slug_prefix = settings['post_slug_prefix']
 paper_summary_template = env.get_template(settings['paper_summary_template'])
 path_to_paper_summaries = settings['path_to_paper_summaries']
 path_to_public_paper_summaries = settings['path_to_public_paper_summaries']
+paper_summary_slug_prefix = settings['paper_summary_slug_prefix']
 
 
 # Render Posts
@@ -170,7 +171,7 @@ for i, fn in enumerate(fns):
 # ------------
 
 template_manager.add_page('blog_template', 'path_to_public_blog', posts=posts)
-template_manager.add_page('paper_summaries_template', 'path_to_public_papers', paper_summaries=paper_summaries)
+template_manager.add_page('summaries_template', 'path_to_public_summaries', paper_summaries=paper_summaries)
 template_manager.add_page('home_template', 'path_to_public_home')
 template_manager.add_page('papers_template', 'path_to_public_papers')
 template_manager.add_page('about_template', 'path_to_public_about')
