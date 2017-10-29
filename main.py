@@ -7,6 +7,7 @@ import sys
 import os
 from os import listdir
 from os.path import isfile, join
+import shutil
 
 
 def mkdirp(path):
@@ -102,6 +103,9 @@ path_to_paper_summaries = settings['path_to_paper_summaries']
 path_to_public_paper_summaries = settings['path_to_public_paper_summaries']
 paper_summary_slug_prefix = settings['paper_summary_slug_prefix']
 
+path_to_static = settings['path_to_static']
+path_to_public_static = settings['path_to_public_static']
+
 
 # Render Posts
 # ------------
@@ -168,10 +172,20 @@ for i, fn in enumerate(fns):
         ))
 
 # Render Standalone Pages
-# ------------
+# -----------------------
 
 template_manager.add_page('blog_template', 'path_to_public_blog', posts=posts)
 template_manager.add_page('summaries_template', 'path_to_public_summaries', paper_summaries=paper_summaries)
 template_manager.add_page('home_template', 'path_to_public_home')
 template_manager.add_page('papers_template', 'path_to_public_papers')
 template_manager.add_page('about_template', 'path_to_public_about')
+
+# Copy Static Data
+# ----------------
+
+for dir in os.listdir(path_to_static):
+    source = os.path.join(path_to_static, dir)
+    target = os.path.join(path_to_public_static, dir)
+    mkdirp(os.path.dirname(target))
+    shutil.rmtree(target)
+    shutil.copytree(source, target)
