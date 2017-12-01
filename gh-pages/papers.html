@@ -45,26 +45,30 @@
 
         </div>
         
-<div class="row" style="margin-bottom: 10px;">
-    <div class="col-xs-12">
-        <div class="row">
-            <div class="blog-post-title col-xs-12" style="font-weight: bold;">Paper Summary: The wake-sleep algorithm for unsupervised neural networks</div>
-        </div>
-        <div class="row">
-            <div class="blog-post-date col-xs-12" style="font-style: italic;">September 2, 2017</div>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="blog-post-body col-xs-12">
-        <p><a href="https://www.cs.toronto.edu/~fritz/absps/ws.pdf">pdf</a></p>
-<p>Consider a game where the goal is to minimize the number of required bits to send a message. The game is broken up into two stages: <em>training</em> and <em>inference</em>. During <em>training</em>, the two players (Sender and Receiver) may communicate with any size of message. During <em>inference</em>, the Sender must send a condensed message and the Receiver must predict what the original full-size message was. The players are scored on both the size of the condensed message and the accuracy of the Receiver's prediction. In this way, there is a penalty for simply sending the smallest size message without being able to recover the original message, and a similar penalty for sending a reasonably large message that the Receiver can trivially interpret. This paper presents an algorithm for training a neural network to participate in this game.</p>
-<p>Research Ideas:</p>
-<ul>
-<li>Although Hemholtz Machines clearly improve the Receiver's score, the Sender's score is determined by selecting the size of the network. There's no straightforward way to distill the neural network following training. For a simple architecture (2 or 3 layers), performing something akin to grid search over layer sizes is not too difficult. For more complex architectures, there is an exponential large search space of potentially useful architectures of varying size. For this reason, Neural Architecture Search might be a useful technique for searching over the possible Hemholtz Machine configurations.</li>
-</ul>
 
-    </div>
+<div class="row" style="margin-top: 10px;">
+
+<div class="col-xs-12">
+    <h4 class="font-weight-normal">Papers</h4>
+
+    <dl>
+        <dt class="font-weight-normal">Workshop Papers</dt>
+        <dd>Andrew Drozdov and Samuel Bowman. The Coadaptation Problem when Learning How and What to Compose. 2017. Extended Abstract. (<a href="https://sites.google.com/site/repl4nlp2017/accepted-papers">workshop</a>)</dd>
+    </dl>
+
+
+    <dl>
+        <dt class="font-weight-normal">Unpublished Work</dt>
+        <dd>
+        Adina Williams, Andrew Drozdov, Samuel Bowman. 2017. Learning to parse from a semantic objective: It works. Is it syntax? (<a href="https://arxiv.org/abs/1709.01121">pdf</a>)
+        </dd>
+        <dd>Katrina Evtimova, Andrew Drozdov, Douwe Kiela, Kyunghyun Cho. 2017. Emergent Language in a Multi-Modal, Multi-Step Referential Game. (<a href="https://arxiv.org/abs/1705.10369">pdf</a>, <a href="https://github.com/nyu-dl/MultimodalGame">source</a>)</dd>
+        <dd>Katrina Evtimova and Andrew Drozdov. Advised by David Sontag. 2016. Understanding Mutual Information and its use in InfoGAN. (<a href="/papers/infogan.pdf">pdf</a>)</dd>
+        <dd>Andrew Drozdov. 2016. Batched Shift Reduce Parsing with lists of Vectors on CUDA. (<a href="/papers/batched-spinn.pdf">pdf</a>)</dd>
+        <dd>S&eacute;bastien Jean, Andrew Drozdov, and Arpit Jain. 2015. POS Tagging and Chunking with Subword2Word Models. (<a href="/papers/subword.pdf">pdf</a>)</dd>
+    </dl>
+</div>
+
 </div>
 
       </div>
