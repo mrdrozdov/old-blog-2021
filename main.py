@@ -171,6 +171,15 @@ for i, fn in enumerate(fns):
         title=config['title'],
         ))
 
+# Copy Static Data
+# ----------------
+
+try:
+    shutil.rmtree(path_to_public_static)
+except:
+    pass
+shutil.copytree(path_to_static, path_to_public_static)
+
 # Render Standalone Pages
 # -----------------------
 
@@ -179,13 +188,3 @@ template_manager.add_page('summaries_template', 'path_to_public_summaries', pape
 template_manager.add_page('home_template', 'path_to_public_home')
 template_manager.add_page('papers_template', 'path_to_public_papers')
 template_manager.add_page('about_template', 'path_to_public_about')
-
-# Copy Static Data
-# ----------------
-
-for dir in os.listdir(path_to_static):
-    source = os.path.join(path_to_static, dir)
-    target = os.path.join(path_to_public_static, dir)
-    mkdirp(os.path.dirname(target))
-    shutil.rmtree(target)
-    shutil.copytree(source, target)

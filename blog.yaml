@@ -15,12 +15,12 @@ path_to_static: ./blog/static
 
 path_to_public_home: ./public/index.html
 path_to_public_blog: ./public/blog/index.html
-path_to_public_summaries: ./public/summaries/index.html
+path_to_public_summaries: ./public/summaries.html
 path_to_public_posts: ./public/blog
 path_to_public_paper_summaries: ./public/summaries
 path_to_public_about: ./public/about.html
-path_to_public_papers: ./public/papers/index.html
-path_to_public_static: ./public
+path_to_public_papers: ./public/papers.html
+path_to_public_static: ./public/static
 
 post_slug_prefix: /blog
 paper_summary_slug_prefix: /summaries
