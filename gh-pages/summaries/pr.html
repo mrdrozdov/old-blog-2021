@@ -40,6 +40,7 @@
             <ul class="list-inline float-right">
               <li class="list-inline-item"><a href="/papers.html">research</a></li>
               <li class="list-inline-item"><a href="/about.html">about</a></li>
+              <li class="list-inline-item"><a class="font-weight-light text-muted" href="/recs.html">recs</a></li>
             </ul>
             
           </div>
@@ -77,10 +78,14 @@
     <!-- Latex -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+
+    <!-- Linkify -->
     <script src="/static/js/linkify.min.js"></script>
     <script src="/static/js/linkify-jquery.min.js"></script>
 
-    <!-- Linkify -->
+    <!-- Masonry -->
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
 
     <!-- Autorender Latex -->
     <script>
@@ -95,6 +100,18 @@
               ]
           }
       );
+
+    // init Masonry
+    var $grid = $('.grid').masonry({
+      // options...
+      itemSelector: '.grid-item',
+      gutter: 10,
+      horizontalOrder: true
+    });
+    // layout Masonry after each image loads
+    $grid.imagesLoaded().progress( function() {
+      $grid.masonry('layout');
+    });
     </script>
 </body>
 </html>
