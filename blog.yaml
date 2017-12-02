@@ -5,6 +5,7 @@ home_template: home.html
 blog_template: blog.html
 post_template: post.html
 summaries_template: summaries.html
+recs_template: recs.html
 paper_summary_template: post.html
 papers_template: papers.html
 about_template: about.html
@@ -16,6 +17,7 @@ path_to_static: ./blog/static
 path_to_public_home: ./public/index.html
 path_to_public_blog: ./public/blog/index.html
 path_to_public_summaries: ./public/summaries.html
+path_to_public_recs: ./public/recs.html
 path_to_public_posts: ./public/blog
 path_to_public_paper_summaries: ./public/summaries
 path_to_public_about: ./public/about.html

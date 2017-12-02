@@ -158,6 +158,11 @@ body {
   background: #d4dfd0;
 }
 
+.grid-item {
+  margin-bottom: 10px;
+  width: 160px;
+}
+
 a.glow {
   padding: 4px 5px;
 }
