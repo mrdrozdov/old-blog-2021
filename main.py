@@ -137,6 +137,7 @@ for i, fn in enumerate(fns):
     posts.append(dict(
         url=os.path.join(post_slug_prefix, slug),
         title=config['title'],
+        date=config['date'],
         ))
 
 # Render Paper Summaries
@@ -183,9 +184,8 @@ shutil.copytree(path_to_static, path_to_public_static)
 # Render Standalone Pages
 # -----------------------
 
-template_manager.add_page('blog_template', 'path_to_public_blog', posts=posts)
 template_manager.add_page('summaries_template', 'path_to_public_summaries', paper_summaries=paper_summaries)
-template_manager.add_page('home_template', 'path_to_public_home')
+template_manager.add_page('home_template', 'path_to_public_home', posts=posts)
 template_manager.add_page('papers_template', 'path_to_public_papers')
 template_manager.add_page('recs_template', 'path_to_public_recs')
 template_manager.add_page('about_template', 'path_to_public_about')
