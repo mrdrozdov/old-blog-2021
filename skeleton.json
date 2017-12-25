@@ -14,15 +14,6 @@
                 "slug": "/blog"
             },
             {
-                "type": "group",
-                "name": "summaries",
-                "template": "post.html",
-                "style": "markdown",
-                "source": "./blog/summaries",
-                "public": "./summaries",
-                "slug": "/summaries"
-            },
-            {
                 "type": "standalone",
                 "group": "posts",
                 "template": "home.html",
@@ -44,10 +35,34 @@
                 "public": "./papers.html"
             },
             {
+                "type": "group",
+                "name": "summaries",
+                "template": "post.html",
+                "style": "markdown",
+                "source": "./blog/summaries",
+                "public": "./summaries",
+                "slug": "/summaries"
+            },
+            {
                 "type": "standalone",
                 "group": "summaries",
                 "template": "summaries.html",
                 "public": "./summaries.html"
+            },
+            {
+                "type": "group",
+                "name": "fun",
+                "template": "post.html",
+                "style": "markdown",
+                "source": "./blog/fun",
+                "public": "./fun",
+                "slug": "/fun"
+            },
+            {
+                "type": "standalone",
+                "group": "fun",
+                "template": "fun.html",
+                "public": "./fun.html"
             },
             {
                 "type": "resource",

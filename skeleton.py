@@ -34,6 +34,7 @@ class Renderer(object):
         )
         self.env = env
         self.cache = {}
+        self.verbose = True
 
     def __cache(self, name, page, config):
         _config = dict(
@@ -94,12 +95,18 @@ class Renderer(object):
         return outp
 
     def __render_jinja(self, path, template, **kwargs):
+        if self.verbose:
+            print("Rendering Jinja\n\tpath={}\n\ttemplate={}".format(
+                path, template))
         template = self.env.get_template(template)
         post = template.render(**kwargs)
         with open(path, 'w') as f:
             f.write(post)
 
     def __render_markdown(self, path, template, fn, **kwargs):
+        if self.verbose:
+            print("Rendering Markdown\n\tpath={}\n\ttemplate={}\n\tfile={}".format(
+                path, template, fn))
         config = self.__parse_md_config(fn)
         data = self.__parse_md_data(fn)
         body = mistune.markdown(data, escape=False)
