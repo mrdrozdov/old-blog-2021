@@ -9,10 +9,10 @@
 
 
             <ul class="list-unstyled">
-            {% for post in posts %}
+            {% for item in group %}
             <li><dl>
-                <dt><a href="{{ post.url }}">{{ post.title }}</a></dt>
-                <dd class="font-weight-light font-italic">{{post.date}}</dd>
+                <dt><a href="{{ item.url }}">{{ item.title }}</a></dt>
+                <dd class="font-weight-light font-italic">{{item.date}}</dd>
             </dl></li>
             {% endfor %}
             </ul>
