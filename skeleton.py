@@ -42,6 +42,7 @@ class Renderer(object):
             title=config.get('title', None),
             date=config.get('date', None),
             )
+        _config.update(config)
         self.cache.setdefault(name, []).append(_config)
 
     def __group(self, name):
@@ -108,8 +109,6 @@ class Renderer(object):
             print("Rendering Markdown\n\tpath={}\n\ttemplate={}\n\tfile={}".format(
                 path, template, fn))
         config = self.__parse_md_config(fn)
-        data = self.__parse_md_data(fn)
-        body = mistune.markdown(data, escape=False)
 
         slug = config.get('slug', None)
         if not slug:
@@ -118,10 +117,16 @@ class Renderer(object):
             config['slug'] = slug = slug + '.html'
         path = os.path.join(path, slug)
 
-        template = self.env.get_template(template)
-        post = template.render(body=body, **config)
-        with open(path, 'w') as f:
-            f.write(post)
+        if config.get('draft', False):
+            return config
+
+        if not config.get('norender', False):
+            template = self.env.get_template(template)
+            data = self.__parse_md_data(fn)
+            body = mistune.markdown(data, escape=False)
+            post = template.render(body=body, **config)
+            with open(path, 'w') as f:
+                f.write(post)
 
         return config
 
@@ -165,6 +170,9 @@ class Renderer(object):
             raise NotImplementedError("Groups only support markdown style.")
         elif style == 'markdown':
             config = self.__render_markdown(public_dir, page['template'], fn)
+
+        if config.get('draft', False):
+            return
 
         name = page.get('name', None)
         if name is not None:

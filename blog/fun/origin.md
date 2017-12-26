@@ -1,5 +1,6 @@
 ---
 title: Book Summary of Origin
+date: December 25, 2017
 slug: origin
 ---
 
@@ -29,10 +30,46 @@ slug: origin
 
 - Page 65. Head On by Cai Guo-Qiang. https://teachartwiki.wikispaces.com/Head+On+--+Cai+Guoqiang
 
-<img src="https://teachartwiki.wikispaces.com/file/view/2006_HeadOn_1.jpg/61840968/2006_HeadOn_1.jpg"/>
+<img width="300px" src="https://teachartwiki.wikispaces.com/file/view/2006_HeadOn_1.jpg/61840968/2006_HeadOn_1.jpg"/>
 
-- Page 65. Joan Miro. https://www.artsy.net/artist/joan-miro
+- Page 65. Joan Miro.
+
+<a href="https://www.artsy.net/artist/joan-miro">
+    <img width="300px" src="https://d32dm0rphc51dk.cloudfront.net/HAzDvFgm9_Oavc0asQptPQ/larger.jpg"/>
+</a>
+
 - Page 86. Claire de Lune by Debussy.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ZIsQPdC9YnY" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+
+- Page 142. The Szechenyi Chain Bridge in Budapest.
+
+<img width="300px" src="https://media-cdn.tripadvisor.com/media/photo-s/0b/33/90/d6/chain-bridge.jpg"/>
+
+- Page 145. La Salve Bridge.
+
+<img width="300px" src="http://hitchhikershandbook.com/wp-content/uploads/2012/09/p1050112.jpg"/>
+
+- Page 162. Quote from Disney's Princess Elsa (Frozen), "Let it go."
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/L0MK7qz13bU" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+
+- Page 186. Chateu Montrose.
+
+<a href="https://www.wine.com/product/chateau-montrose-2005/96219">
+    <img width="300px" src="https://www.wine.com/labels/96219h.jpg"/>
+</a>
+
+- Page 196. El Guernica by Picasso.
+
+<img src="https://upload.wikimedia.org/wikipedia/en/thumb/7/74/PicassoGuernica.jpg/350px-PicassoGuernica.jpg"/>
+
+- Page 196. La Verbena by Maruha Mallo.
+
+<a href="http://www.museoreinasofia.es/en/collection/artwork/verbena-fair">
+    <img width="300px" src="http://www.museoreinasofia.es/sites/default/files/styles/foto_vertical_wide/public/obras/AS01985_0.jpg?itok=uAya_-E8"/>
+</a>
+
 
 # Quotes
 
@@ -44,7 +81,7 @@ https://www.theguardian.com/books/2017/oct/08/origin-by-dan-brown-digested-read
 
 # Chapters
 
-My interpretation of the papers.
+My choice for chapter titles.
 
 - Prologue: Edmond Meets the Religious Representatives. Page 1
 - Chapter 1: Professor Robert Langdon Arrives. Page 11
@@ -77,4 +114,17 @@ My interpretation of the papers.
 - Chapter 28: Escape the Museum. Page 131
 - Chapter 29: View from the Cab. Page 136
 - Chapter 30: Admiral Garza goes to work. Page 138
-- ...
+- Chapter 31: The Rabbi's Guardian Angel. Page 143
+- Chapter 32: Water Taxi. Page 145
+- Chapter 33: Enter Monica Martin. Page 149
+- Chapter 34: ConspiracyNet Post 3. Page 155
+- Chapter 35: A Superior Device. Page 156
+- Chapter 36: Mission Incomplete. Page 163
+- Chapter 37: The Francoist Connection. Page 168
+- Chapter 38: Flight Control. Page 173
+- Chapter 39: Trust Winston. Page 175
+- Chapter 40: Ruin Bars. Page 179
+- Chapter 41: Monte's Conspiracy Constellation. Page 182
+- Chapter 42: Theories of Origin. Page 185
+- Chapter 43: Silk Road. Page 190
+- Chapter 44: . Page 195
