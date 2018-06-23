@@ -6,17 +6,17 @@
         },
         {
             "name": "setup",
-            "command": "mkdir -p public-kiss/blog public-kiss/static",
+            "command": "mkdir -p public-kiss/blog",
             "depends": ["clean"]
         },
         {
-            "name": "touch-blog",
-            "command": "touch public-kiss/blog/1",
+            "name": "build-blog",
+            "command": "python kiss_blog.py --posts ./blog/posts --output public-kiss/blog --templates ./templates",
             "depends": ["setup"]
         },
         {
-            "name": "touch-static",
-            "command": "touch public-kiss/static/2",
+            "name": "copy-static",
+            "command": "cp -r ./blog/static ./public-kiss/",
             "depends": ["setup"]
         }
     ]
