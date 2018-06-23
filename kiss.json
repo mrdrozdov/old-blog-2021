@@ -1,0 +1,23 @@
+{
+    "tasks": [
+        {
+            "name": "clean",
+            "command": "rm -rf public-kiss"
+        },
+        {
+            "name": "setup",
+            "command": "mkdir -p public-kiss/blog public-kiss/static",
+            "depends": ["clean"]
+        },
+        {
+            "name": "touch-blog",
+            "command": "touch public-kiss/blog/1",
+            "depends": ["setup"]
+        },
+        {
+            "name": "touch-static",
+            "command": "touch public-kiss/static/2",
+            "depends": ["setup"]
+        }
+    ]
+}
