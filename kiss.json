@@ -25,6 +25,21 @@
             "depends": ["setup"]
         },
         {
+            "name": "list-blog",
+            "command": "python kiss_list.py --posts ./blog/posts --output public-kiss --templates ./templates --template_name home.html --slug index.html --group_slug /blog",
+            "depends": ["setup"]
+        },
+        {
+            "name": "list-fun",
+            "command": "python kiss_list.py --posts ./blog/fun --output public-kiss --templates ./templates --template_name fun.html --slug fun.html --group_slug /fun",
+            "depends": ["setup"]
+        },
+        {
+            "name": "list-summaries",
+            "command": "python kiss_list.py --posts ./blog/summaries --output public-kiss --templates ./templates --template_name summaries.html --slug summaries.html --group_slug /summaries",
+            "depends": ["setup"]
+        },
+        {
             "name": "page-about",
             "command": "python kiss_page.py --output public-kiss --templates ./templates --template_name about.html --slug about.html",
             "depends": ["setup"]
