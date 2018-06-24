@@ -5,29 +5,6 @@ from kiss_utils import write_html, get_page_name
 from kiss_utils import BlogPostReader, JinjaRenderer, MarkdownRender
 
 
-def touch_file(path):
-    os.system('touch {}'.format(path))
-
-
-def write_html(path, html):
-    with open(path, 'w') as f:
-        f.write(html)
-
-
-def get_page_name(path, config):
-    try:
-        slug = config['slug']
-    except ValueError as e:
-        # Slug must be included.
-        raise e
-
-    # Slug should end in html.
-    if not slug.endswith('.html'):
-        slug = slug + '.html'
-
-    return os.path.join(path, slug)
-
-
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--posts', type=str, required=True)
