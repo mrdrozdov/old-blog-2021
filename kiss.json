@@ -6,12 +6,37 @@
         },
         {
             "name": "setup",
-            "command": "mkdir -p public-kiss/blog",
+            "command": "mkdir -p public-kiss/blog public-kiss/fun public-kiss/summaries",
             "depends": ["clean"]
         },
         {
-            "name": "build-blog",
-            "command": "python kiss_blog.py --posts ./blog/posts --output public-kiss/blog --templates ./templates",
+            "name": "group-blog",
+            "command": "python kiss_group.py --posts ./blog/posts --output public-kiss/blog --templates ./templates",
+            "depends": ["setup"]
+        },
+        {
+            "name": "group-fun",
+            "command": "python kiss_group.py --posts ./blog/fun --output public-kiss/fun --templates ./templates",
+            "depends": ["setup"]
+        },
+        {
+            "name": "group-summaries",
+            "command": "python kiss_group.py --posts ./blog/summaries --output public-kiss/summaries --templates ./templates",
+            "depends": ["setup"]
+        },
+        {
+            "name": "page-about",
+            "command": "python kiss_page.py --output public-kiss --templates ./templates --template_name about.html --slug about.html",
+            "depends": ["setup"]
+        },
+        {
+            "name": "page-papers",
+            "command": "python kiss_page.py --output public-kiss --templates ./templates --template_name papers.html --slug papers.html",
+            "depends": ["setup"]
+        },
+        {
+            "name": "page-recommendations",
+            "command": "python kiss_page.py --output public-kiss --templates ./templates --template_name recs.html --slug recs.html",
             "depends": ["setup"]
         },
         {
