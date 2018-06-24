@@ -2,61 +2,61 @@
     "tasks": [
         {
             "name": "clean",
-            "command": "rm -rf public-kiss"
+            "command": "rm -rf public"
         },
         {
             "name": "setup",
-            "command": "mkdir -p public-kiss/blog public-kiss/fun public-kiss/summaries",
+            "command": "mkdir -p public/blog public/fun public/summaries",
             "depends": ["clean"]
         },
         {
             "name": "group-blog",
-            "command": "python kiss_group.py --posts ./blog/posts --output public-kiss/blog --templates ./templates",
+            "command": "python kiss_group.py --posts ./blog/posts --output public/blog --templates ./templates",
             "depends": ["setup"]
         },
         {
             "name": "group-fun",
-            "command": "python kiss_group.py --posts ./blog/fun --output public-kiss/fun --templates ./templates",
+            "command": "python kiss_group.py --posts ./blog/fun --output public/fun --templates ./templates",
             "depends": ["setup"]
         },
         {
             "name": "group-summaries",
-            "command": "python kiss_group.py --posts ./blog/summaries --output public-kiss/summaries --templates ./templates",
+            "command": "python kiss_group.py --posts ./blog/summaries --output public/summaries --templates ./templates",
             "depends": ["setup"]
         },
         {
             "name": "list-blog",
-            "command": "python kiss_list.py --posts ./blog/posts --output public-kiss --templates ./templates --template_name home.html --slug index.html --group_slug /blog",
+            "command": "python kiss_list.py --posts ./blog/posts --output public --templates ./templates --template_name home.html --slug index.html --group_slug /blog",
             "depends": ["setup"]
         },
         {
             "name": "list-fun",
-            "command": "python kiss_list.py --posts ./blog/fun --output public-kiss --templates ./templates --template_name fun.html --slug fun.html --group_slug /fun",
+            "command": "python kiss_list.py --posts ./blog/fun --output public --templates ./templates --template_name fun.html --slug fun.html --group_slug /fun",
             "depends": ["setup"]
         },
         {
             "name": "list-summaries",
-            "command": "python kiss_list.py --posts ./blog/summaries --output public-kiss --templates ./templates --template_name summaries.html --slug summaries.html --group_slug /summaries",
+            "command": "python kiss_list.py --posts ./blog/summaries --output public --templates ./templates --template_name summaries.html --slug summaries.html --group_slug /summaries",
             "depends": ["setup"]
         },
         {
             "name": "page-about",
-            "command": "python kiss_page.py --output public-kiss --templates ./templates --template_name about.html --slug about.html",
+            "command": "python kiss_page.py --output public --templates ./templates --template_name about.html --slug about.html",
             "depends": ["setup"]
         },
         {
             "name": "page-papers",
-            "command": "python kiss_page.py --output public-kiss --templates ./templates --template_name papers.html --slug papers.html",
+            "command": "python kiss_page.py --output public --templates ./templates --template_name papers.html --slug papers.html",
             "depends": ["setup"]
         },
         {
             "name": "page-recommendations",
-            "command": "python kiss_page.py --output public-kiss --templates ./templates --template_name recs.html --slug recs.html",
+            "command": "python kiss_page.py --output public --templates ./templates --template_name recs.html --slug recs.html",
             "depends": ["setup"]
         },
         {
             "name": "copy-static",
-            "command": "cp -r ./blog/static ./public-kiss/",
+            "command": "cp -r ./blog/static ./public/",
             "depends": ["setup"]
         }
     ]
