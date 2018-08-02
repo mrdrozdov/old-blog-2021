@@ -4,7 +4,21 @@ Keep It Simple Skeleton
 
 import argparse
 import json
-import os
+import logging
+import subprocess
+import sys
+import time
+
+
+def initialize_logger():
+    formatter = logging.Formatter(fmt='%(asctime)s %(levelname)-8s %(message)s',
+                                  datefmt='%Y-%m-%d %H:%M:%S')
+    handler = logging.StreamHandler(stream=sys.stdout)
+    handler.setFormatter(formatter)
+    logger = logging.getLogger()
+    logger.setLevel(logging.DEBUG)
+    logger.addHandler(handler)
+    return logger
 
 
 def read_skeleton(path):
@@ -16,6 +30,7 @@ def read_skeleton(path):
 class DAG(object):
     def __init__(self, tasks, strict=True):
         self.dag = self.build_dag(tasks, strict)
+        self.logger = initialize_logger()
 
     def build_dag(self, tasks, strict=True):
         dag = {}
@@ -85,7 +100,12 @@ class DAG(object):
             self.run_command(command)
 
     def run_command(self, command):
-        os.system(command)
+        start = time.perf_counter()
+        completed = subprocess.run(command, shell=True, check=True)
+        elapsed = time.perf_counter() - start
+
+        self.logger.debug('Command: {}'.format(command))
+        self.logger.debug('ReturnCode: {}, Time: {:.4}'.format(completed.returncode, elapsed))
 
 
 def run(skeleton):
