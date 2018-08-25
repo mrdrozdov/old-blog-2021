@@ -161,8 +161,11 @@ body {
 .main-content-wrapper {
   padding: 5px;
   background-clip: content-box, padding-box;
-  border-bottom: 5px #a8baa7 solid;
   /*background-image: linear-gradient(to bottom, #dbe3d5 0%, #dbe3d5 100%), linear-gradient(to bottom, #a8baa7 0%, #a8baa7 100%);*/
+}
+
+.footer-content {
+  border-bottom: 5px #a8baa7 solid;
 }
 
 .main-content {
