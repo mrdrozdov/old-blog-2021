@@ -189,6 +189,11 @@ a.glow:focus {
   color: #fff;
 }
 
+a.glow:hover i,
+a.glow:focus i {
+  color: #fff;
+}
+
 a.nohover:hover,
 a.nohover:focus {
   background: inherit;
