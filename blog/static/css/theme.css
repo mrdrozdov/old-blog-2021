@@ -255,3 +255,8 @@ ul.list-inline.nodivider>li:not(:first-child):before {
 ul.list-inline.dashdivider>li:not(:first-child):before {
   content: none;
 }
+
+.main-card {
+  border: none;
+  background-color: transparent;
+}
