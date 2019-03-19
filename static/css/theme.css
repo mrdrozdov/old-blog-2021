@@ -265,3 +265,28 @@ ul.list-inline.dashdivider>li:not(:first-child):before {
   border: none;
   background-color: transparent;
 }
+
+pre {
+  margin: 10px 10px 30px 10px;
+  background-color: RGB(71, 92, 77, 0.2);
+  padding: 20px;
+  border-radius: 10px;
+
+}
+
+.blog-post-date {
+    margin-bottom: 10px;
+}
+
+.borderless td, .borderless th {
+    border: none;
+}
+
+.table th {
+  text-align: right;
+  padding: 0;
+}
+
+.table td {
+  padding: 0;
+}
