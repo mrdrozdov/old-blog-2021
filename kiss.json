@@ -55,6 +55,11 @@
             "depends": ["setup"]
         },
         {
+            "name": "page-poetry",
+            "command": "python kiss_page.py --output public --templates ./templates --template_name poetry.html --slug poetry.html",
+            "depends": ["setup"]
+        },
+        {
             "name": "copy-static",
             "command": "cp -r ./blog/static ./public/",
             "depends": ["setup"]
