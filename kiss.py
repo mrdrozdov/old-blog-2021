@@ -9,6 +9,10 @@ import subprocess
 import sys
 import time
 
+# multi-thread
+import threading
+from queue import Queue
+
 
 def initialize_logger():
     formatter = logging.Formatter(fmt='%(asctime)s %(levelname)-8s %(message)s',
@@ -103,12 +107,32 @@ class DAG(object):
             if len(incoming) > 0:
                 raise RuntimeError('Cycle detected.')
 
-    def run(self):
-        for batch in self.iterate_over_tasks():
-            for name in batch:
+    def run(self, n_jobs=4):
+
+        def worker():
+            while True:
+                # start
+                name = q.get()
+
+                # do work
                 node = self.dag[name]
                 command = node['command']
                 self.run_command(command)
+
+                # finish
+                q.task_done()
+
+        # Create the queue and thread pool.
+        q = Queue()
+        for i in range(n_jobs):
+             t = threading.Thread(target=worker)
+             t.daemon = True  # thread dies when main thread (only non-daemon thread) exits.
+             t.start()
+
+        for batch in self.iterate_over_tasks():
+            for name in batch:
+                q.put(name)
+            q.join()
 
     def run_command(self, command):
         start = time.perf_counter()
@@ -122,12 +146,13 @@ class DAG(object):
 def run(skeleton):
     tasks = skeleton['tasks']
     dag = DAG(tasks)
-    dag.run()
+    dag.run(n_jobs=options.n_jobs)
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--skeleton', type=str, default='kiss.json')
+    parser.add_argument('--n_jobs', type=int, default=4)
     options = parser.parse_args()
 
     skeleton = read_skeleton(options.skeleton)
