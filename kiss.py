@@ -60,44 +60,55 @@ class DAG(object):
         Depends are incoming edges. Parent are outgoing edges.
         """
         names = self.dag.keys()
-        bookkeeper = []
-        order = []
+        this_batch = []
         edges = {}  # incoming edges.
 
         # Initialization. Get all nodes with no incoming edges.
         for n in names:
             node = self.dag[n]
             if len(node['depends']) == 0:
-                bookkeeper.append(n)
+                this_batch.append(n)
             edges[n] = set(node['depends'])
 
         # Run topological sort.
-        while len(bookkeeper) > 0:
-            n = bookkeeper.pop()
-            order.append(n)
-            node = self.dag[n]
-            
-            add_to_order = False
-            for m in node['parent']:
-                __edges = edges[m]
-                __edges.remove(n)
+        while True:
+            batch = []
+            next_batch = []
+            while len(this_batch) > 0:
+                n = this_batch.pop()
+                batch.append(n)
+                node = self.dag[n]
+                
+                add_to_order = False
+                for m in node['parent']:
+                    __edges = edges[m]
+                    __edges.remove(n)
 
-                # If no more incoming edges, then extract.
-                if len(__edges) == 0:
-                    bookkeeper.append(m)
+                    # If no more incoming edges, then extract.
+                    if len(__edges) == 0:
+                        next_batch.append(m)
+
+            # Return the current batch (all tasks within a batch can run in parallel).
+            yield batch
+
+            # If no batch is coming next, then exit.
+            if len(next_batch) == 0:
+                break
+
+            # Assign the next batch.
+            this_batch = next_batch
 
         # Check for cycles.
         for n, incoming in edges.items():
             if len(incoming) > 0:
                 raise RuntimeError('Cycle detected.')
 
-        return order
-
     def run(self):
-        for name in self.iterate_over_tasks():
-            node = self.dag[name]
-            command = node['command']
-            self.run_command(command)
+        for batch in self.iterate_over_tasks():
+            for name in batch:
+                node = self.dag[name]
+                command = node['command']
+                self.run_command(command)
 
     def run_command(self, command):
         start = time.perf_counter()
