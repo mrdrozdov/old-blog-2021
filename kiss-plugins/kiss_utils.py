@@ -4,7 +4,8 @@ import os
 import mistune
 import yaml
 
-from jinja2 import Environment, PackageLoader, select_autoescape
+from jinja2 import Environment, select_autoescape
+from jinja2 import FileSystemLoader
 
 
 def write_html(path, html):
@@ -27,8 +28,8 @@ def get_page_name(path, config):
 
 
 class JinjaRenderer(object):
-    def __init__(self, templates, name='blog'):
-        loader = PackageLoader(name, templates)
+    def __init__(self, template_path):
+        loader = FileSystemLoader(template_path)
         env = Environment(loader=loader)
 
         self.env = env

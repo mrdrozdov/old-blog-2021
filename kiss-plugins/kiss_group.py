@@ -39,5 +39,5 @@ if __name__ == '__main__':
         html = jinja_renderer.render(template_name, body=markdown, **config)
 
         target = get_page_name(output_path, config)
-        
+
         write_html(target, html)
