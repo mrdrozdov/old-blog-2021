@@ -25,7 +25,7 @@ p {
   font-weight: 700;
 }
 .site-template {
-  margin-top: 20px;
+  margin-top: 0px;
 }
 .site-template .content {
   margin-left: 10px;
@@ -214,9 +214,16 @@ a:focus {
   color: #fff;
 }
 
-.header a {
-  color: #adc0b3;
+.header {
+  padding-top: 10px;
+  /*background-color: #475c4d;*/
+  color: #fff;
 }
+
+.header a {
+  color: #475c4d;
+}
+
 .header a:hover,
 .header a:focus {
   text-decoration: none;
@@ -224,9 +231,27 @@ a:focus {
   color: #fff;
 }
 
+.header-nav {
+  padding-top: 10px;
+  padding-bottom: 4px;
+  background-color: #475c4d;
+  color: #fff;
+}
+
+.header-nav a {
+  color: #adc0b3;
+}
+
+.header-nav a:hover,
+.header-nav a:focus {
+  text-decoration: none;
+  background: none;
+  color: #fff;
+}
+
 .list-inline>li {
-  padding-right: 0px; 
-  padding-left: 0px; 
+  padding-right: 0px;
+  padding-left: 0px;
 }
 
 ul.list-inline {
@@ -241,12 +266,6 @@ ul.logo>li:first-child {
 
 ul.list-inline.bardivider>li:not(:first-child):before {
   content: " | ";
-}
-
-.header {
-  padding-top: 10px;
-  background-color: #475c4d;
-  color: #fff;
 }
 
 li.nodivider {
