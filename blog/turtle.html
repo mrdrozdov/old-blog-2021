@@ -70,90 +70,53 @@
 
         </div>
         
-
 <div class="row" style="margin-top: 10px;">
     <div class="col-12 main-content-wrapper">
-        <div class="row main-content">
-
-            <div class="col-3">
-                <div class="card main-card">
-                    <img class="card-img-top" src="/static/img/milkshake.jpg">
-
-                    <div style="margin-top: 30px;">
-                        <p>I'm a second-year PhD student at UMass-Amherst with a focus in deep learning and natural language processing.</p>
-
-                        <p>
-                            <a class="glow" style="display: inline-block;" href="http://github.com/mrdrozdov">
-                                <i class="fab fa-github" style="font-size: 15px;"></i>
-                            </a>
-                             &nbsp;
-                            <a class="glow" style="display: inline-block;" href="http://twitter.com/mrdrozdov">
-                                <i class="fab fa-twitter" style="font-size: 15px;"></i>
-                            </a>
-                             &nbsp;
-                            <a class="glow" style="display: inline-block;" href="mailto:andrew@mrdrozdov.com">
-                                <i class="fas fa-at" style="font-size: 15px;"></i>
-                            </a>
-                        </p>
-                    </div>
-                </div>
+        <div class="main-content">
+            <div class="row">
+                <div class="blog-post-title col-12" style="font-weight: bold;">Parse Trees can be Beautiful</div>
             </div>
+            <div class="row">
+                <div class="blog-post-date col-12" style="font-style: italic;">December 11, 2018</div>
+            </div>
+            <div class="row">
+                <div class="blog-post-body col-12">
+                    <p>Congrats! You've invented a brilliant idea for understanding language, and now you want to share it in the world. Your idea relies on a "structural representation" of text. Structural representation. Wat.</p>
+<p>Okay. Let's try this again. You've written a machine learning model that uses parse trees. What's a parse tree? Glad that you asked. There's many ways to organize your sentence with syntactic or semantic parses.</p>
+<p>Example of syntactic parses include:</p>
+<ul>
+<li>Constituent Parse</li>
+<li>Dependency Parse</li>
+</ul>
+<div class="card text-center" style="background-color: RGB(0, 0, 0, 0); border: none;">
+  <img class="card-img-top" style="padding: 10px 40px 10px 40px; border-radius: 10px; background-color: white;" src="http://www.nltk.org/book/tree_images/ch08-extras-tree-1.png" alt="Card image cap"></img>
+  <div class="card-body"> <p class="card-text">An example constituency parse from nltk</p> </div>
+</div><div class="card text-center" style="background-color: RGB(0, 0, 0, 0); border: none;">
+  <img class="card-img-top" style="padding: 3px; border-radius: 10px;" src="https://nlpforhackers.io/wp-content/uploads/2018/03/Screen-Shot-2018-03-28-at-12.09.32.png" alt="Card image cap"></img>
+  <div class="card-body"> <p class="card-text">An example dependency parse from spacy.io</p> </div>
+</div><p>Examples of semantic parses include:</p>
+<ul>
+<li>Semantic Role Labeling</li>
+</ul>
+<div class="card text-center" style="background-color: RGB(0, 0, 0, 0); border: none; width: 80%; margin: 0 auto;">
+  <img class="card-img-top" style="padding: 10px 40px 10px 40px; border-radius: 10px; background-color: white;" src="https://ai2-s2-public.s3.amazonaws.com/figures/2017-08-08/2791e0d36ba23763195ac984453d61dbaff555da/2-Figure1-1.png" alt="Card image cap"></img>
+  <div class="card-body"> <p class="card-text">Example of SRL predicates and arguments shown with a dependency tree (<a href="https://www.semanticscholar.org/paper/Dependency-based-Semantic-Role-Labeling-of-PropBank-Johansson-Nugues/2791e0d36ba23763195ac984453d61dbaff555da">Johansson and Nugues, 2008</a>).</p> </div>
+</div><ul>
+<li>Abstract Meaning Representation</li>
+<li>Coreference Resolution</li>
+</ul>
+<pre><code>&lt;p&gt;Sample text here...&lt;/p&gt;
+&lt;p&gt;And another line of sample text here...&lt;/p&gt;
+</code></pre><p>Related Links:</p>
+<ul>
+<li><a href="https://videos.videoken.com/index.php/videos/neurips-2018-turorial-session-on-visualization-for-machine-learning/">NeurIPS 2018 Tutorial Session on Visualization for Machine Learning</a>, and summarized <a href="http://www.europe.naverlabs.com/Blog/NeurIPS-2018-Part-2-4-Visualization-and-ML">here</a>.</li>
+</ul>
 
-            <div class="col-9">
-
-                <h4 class="font-weight-normal">Research</h4>
-
-                <dl>
-                    <dt class="font-weight-normal">Main Conference</dt>
-                    <dd>Andrew Drozdov, Pat Verga, Yi-Pei, Mohit Iyyer, Andrew McCallum
-                        <br> Unsupervised Labeled Parsing with Deep Inside-Outside Recursive Auto-Encoders
-                        <br> EMNLP 2019
-                        <br> [<a href="https://www.aclweb.org/anthology/D19-1161/">paper</a>]
-                    </dd>
-                    <dd>Andrew Drozdov, Pat Verga, Mohit Yadav, Mohit Iyyer, Andrew McCallum
-                        <br> Unsupervised Latent Tree Induction with Deep Inside-Outside Recursive Auto-Encoders
-                        <br> NAACL 2019
-                        <br> [<a href="https://arxiv.org/abs/1904.02142">paper</a>] [<a href="https://github.com/iesl/diora">code</a>]
-                    </dd>
-                    <dd>Katrina Evtimova, Andrew Drozdov, Douwe Kiela, Kyunghyun Cho
-                        <br> Emergent Communication in a Multi-Modal, Multi-Step Referential Game
-                        <br> ICLR 2018
-                        <br> [<a href="https://arxiv.org/abs/1705.10369">paper</a>] [<a href="https://github.com/nyu-dl/MultimodalGame">code</a>]
-                    </dd>
-                    <dd>Adina Williams, Andrew Drozdov, Samuel Bowman
-                        <br> Learning to parse from a semantic objective: It works. Is it syntax?
-                        <br> TACL 2018
-                        <br> [<a href="https://arxiv.org/abs/1709.01121">paper</a>] [<a href="https://github.com/nyu-mll/spinn">code</a>]
-                    </dd>
-                </dl>
-
-                <dl>
-                    <dt class="font-weight-normal">Workshop</dt>
-                    <dd>Andrew Drozdov and Samuel Bowman
-                        <br> The Coadaptation Problem when Learning How and What to Compose
-                        <br> ACL 2017 (Extended Abstract)
-                        <br> [<a href="https://sites.google.com/site/repl4nlp2017/accepted-papers">workshop</a>]
-                    </dd>
-                </dl>
-
-                <dl>
-                    <dt class="font-weight-normal">Unpublished Work</dt>
-                    <dd>Katrina Evtimova and Andrew Drozdov (Advised by David Sontag)
-                        <br> Understanding Mutual Information and its use in InfoGAN
-                        <br> Course Paper for Inference and Representation (2016)
-                        <br> [<a href="/static/papers/infogan.pdf">paper</a>] [<a href="https://cds.nyu.edu/cds-faculty-students-sweep-awards/">award</a>]
-                    </dd>
-                    <dd>S&eacute;bastien Jean, Andrew Drozdov, and Arpit Jain
-                        <br> POS Tagging and Chunking with Subword2Word Models
-                        <br> Course Paper for Statistical Natural Language Processing (2015)
-                        <br> [<a href="/static/papers/subword.pdf">paper</a>]
-                    </dd>
-                </dl>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
 
         <div class="row">
           <div class="col-12 footer-content" style="text-align: center;">
