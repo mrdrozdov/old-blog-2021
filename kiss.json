@@ -55,6 +55,11 @@
             "depends": ["setup"]
         },
         {
+            "name": "page-quotes",
+            "command": "python kiss_page.py --output public --templates ./templates --template_name quotes.html --slug quotes.html",
+            "depends": ["setup"]
+        },
+        {
             "name": "page-poetry",
             "command": "python kiss_page.py --output public --templates ./templates --template_name poetry.html --slug poetry.html",
             "depends": ["setup"]
