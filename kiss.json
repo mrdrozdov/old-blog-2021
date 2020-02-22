@@ -60,6 +60,11 @@
             "depends": ["setup"]
         },
         {
+            "name": "page-code",
+            "command": "python kiss-plugins/kiss_page.py --output public --templates ./blog/templates --template_name code.html --slug code.html",
+            "depends": ["setup"]
+        },
+        {
             "name": "page-poetry",
             "command": "python kiss-plugins/kiss_page.py --output public --templates ./blog/templates --template_name poetry.html --slug poetry.html",
             "depends": ["setup"]
